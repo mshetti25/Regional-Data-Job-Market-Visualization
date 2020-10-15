@@ -1,0 +1,69 @@
+html{
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    
+    margin-bottom: 80px;
+  }
+
+.panel{
+    background-color: #f8f8f8;
+    padding: 10px;
+    
+
+}  
+.panel-body{
+    background-color: #f8f8f8;
+    
+}
+
+
+
+footer{
+    background-color: lightgray;
+    padding: 25px;
+    border-top: 20px;
+    height: 50px;
+    border-top-color: Teal;
+    border-width: 12px;
+    border-top-style: solid;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.current-tag{
+    border: 15px;
+    border-width: 15px;
+    border-color: Teal;
+    border-style: solid;
+}
+
+
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: lightgray;
+ }
+
+@media (max-width: 480px) {
+    .navbar {
+      background-color: rgb(12, 173, 167);
+  }
+  
+    .navbar-brand {
+                   background-color: white;
+                   font-family: times new roman;
+                   font-weight: bold;
+                   color: rgb(12, 173, 167);
+  }
+
+    h2 {
+        font-size: 100%
+    }
+
+    h3 {
+        font-size: 100%
+    }
+}

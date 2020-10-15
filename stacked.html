@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Web Visualization for Weather Latitude</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="web_vis.css">
+    <style>
+        body {
+            background-color: #E5E8E8;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title: {
+                    text: "LinkedIn Easy Apply by Job Type"
+                },
+                axisX: {
+                    interval: 1,
+                },
+                axisY: {
+                    title: "Percentage of Jobs",
+                    suffix: "%"
+                },
+                toolTip: {
+                    shared: true
+                },
+                legend: {
+                    verticalAlign: "center",
+                    horizontalAlign: "left"
+                },
+                data: [{
+                    type: "stackedColumn100",
+                    name: "Can Easy Apply",
+                    showInLegend: true,
+                    xValueFormatString: "",
+                    yValueFormatString: "#,##0\"%\"",
+                    dataPoints: [
+                        { x: 1, y: 5, label: "Data Analyst" },
+                        { x: 2, y: 5, label: "Data Engineer" },
+                        { x: 3, y: 3, label: "Data Scientist" }
+                    ]
+                },
+                {
+                    type: "stackedColumn100",
+                    name: "Cannot Easy Apply",
+                    showInLegend: true,
+                    xValueFormatString: "",
+                    yValueFormatString: "#,##0\"%\"",
+                    dataPoints: [
+                        { x: 1, y: 95, label: "Data Analyst" },
+                        { x: 2, y: 95, label: "Data Engineer" },
+                        { x: 3, y: 97, label: "Data Scientist" }
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+</head>
+
+<body style="background-color: lightgray">
+    <!-- <h2 style="text-align:center;color: teal;"> Regional Data Job Market Dashboard</h2> -->
+    <nav class="navbar"></nav>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Navigate</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1"></div>
+            <a class="navbar-brand" href="index.html" style="color: white; background-color: Teal;">
+                <span class="nav-color">Summary Page</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">Plots <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="geo.html">Geo Distribution</a></li>
+                        <li><a href="stacked.html">Easy Apply</a></li>
+                        <li><a href="bar.html">Top Cities Job</a></li>
+                        <li><a href="line.html">Sector</a></li>
+                    </ul>
+                </li>
+                <li><a href="data.html">Dataset</a></li>
+
+            </ul>
+        </div>
+    </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12" pad top>
+
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2 style="color: teal;">LinkedIn Easy Apply by Job type</h2>
+                        <hr>
+                        <div id="chartContainer" style="height: 450px; width: 70%;"></div>
+                        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <footer>
+            <p style="text-align: center">Dataneers of Data Science Bootcamp <i
+                    class="glyphicon glyphicon-copyright-mark"> </i>
+                2020.
+                All Rights Reserved</p>
+
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</body>

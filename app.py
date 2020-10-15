@@ -4,14 +4,15 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
-import datetime;
+import datetime
 
-engine = create_engine('postgresql://postgres:@localhost:5432/mydatabase')
+engine = create_engine('postgresql://postgres:Transcend1@localhost:5432/RegionalJobMarket')
 
 Base = automap_base()
 
 Base.prepare(engine, reflect=True)
 Combined = Base.classes.combined 
+# print(Base.classes.keys)
 session = Session(engine)
 
 app = Flask(__name__)
