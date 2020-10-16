@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Web Visualization for Weather Latitude</title>
+    <title>Sector</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -24,6 +24,54 @@
             background-color: #E5E8E8;
         }
     </style>
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "dark1",
+                title: {
+                    text: "Sector v/s Count of Data Jobs"
+                },
+                data: [{
+                    type: "line",
+                    lineThickness: 3,
+                    indexLabelFontSize: 16,
+                    dataPoints: [
+                        { label: "Accounting & Legal", y: 628165 },
+                        { label: "Aerospace & Defense", y: 674876 },
+                        { label: "Agriculture & Forestry", y: 520, indexLabel: "\u2193 lowest", markerColor: "yellow", markerType: "triangle" },
+                        { label: "Arts, Entertainment & Recreation", y: 85203 },
+                        { label: "Biotech & Pharmaceuticals", y: 2177144 },
+                        { label: "Business Services", y: 6607606 },
+                        { label: "Construction, Repair & Maintenance", y: 144908 },
+                        { label: "Consumer Services", y: 190872 },
+                        { label: "Education", y: 861539 },
+                        { label: "Finance", y: 2545241 },
+                        { label: "Government", y: 710706 },
+                        { label: "Health Care", y: 1637650 },
+                        { label: "Information Technology", y: 11580247, indexLabel: "\u2191 highest", markerColor: "yellow", markerType: "triangle" },
+                        { label: "Insurance", y: 1071749 },
+                        { label: "Manufacturing", y: 958272 },
+                        { label: "Media", y: 629570 },
+                        { label: "Mining & Metals", y: 7549 },
+                        { label: "Non-Profit", y: 134593 },
+                        { label: "Oil, Gas, Energy & Utilities", y: 375065 },
+                        { label: "Media", y: 629570 },
+                        { label: "Real Estate", y: 143328 },
+                        { label: "Restaurants, Bars & Food Services", y: 90553 },
+                        { label: "Retail", y: 634691 },
+                        { label: "Telecommunications", y: 266417 },
+                        { label: "Transportation & Logistics", y: 213565 },
+                        { label: "Travel & Tourism", y: 41332 }
+
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
 </head>
 
 <body style="background-color: lightgray">
@@ -43,7 +91,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-1"></div>
             <a class="navbar-brand" href="index.html" style="color: white; background-color: Teal;">
-                <span class="nav-color">Summary Page</span>
+                <span class="nav-color">Summary Dashboard</span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -55,7 +103,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="geo.html">Geo Distribution</a></li>
                         <li><a href="stacked.html">Easy Apply</a></li>
-                        <li><a href="bar.html">Top Cities Job</a></li>
+                        <li><a href="bar.html">Salary Range</a></li>
                         <li><a href="line.html">Sector</a></li>
                     </ul>
                 </li>
@@ -73,9 +121,10 @@
 
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <h2 style="color: teal;">Geographic Distribution</h2>
+                        <h2 style="color: teal;">Sector Count</h2>
                         <hr>
-                        
+                        <div id="chartContainer" style="height: 450px; width: 100%;"></div>
+                        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
                     </div>
                 </div>
 
