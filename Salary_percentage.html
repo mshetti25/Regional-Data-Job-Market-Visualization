@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+<script type="text/javascript">
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title:{
+		text: "National Salary Average  - Data Scientist, Engineer and Analyst"
+	},
+    
+
+    axisY: {
+		title: "Percentage Count by Salary Range",
+		includeZero: true
+	},
+	legend: {
+		cursor:"pointer",
+        itemclick : toggleDataSeries
+	},
+	toolTip: {
+		shared: true,
+		content: toolTipFormatter
+	},
+	data: [{
+        xValueFormatString: "#,##0\"%\"",
+
+		type: "bar",
+		showInLegend: true,
+		name: "Data Analyst",
+        color: "blue",
+        yValueFormatString: "",
+        xValueFormatString: "#,##0\"%\"",
+		dataPoints: [
+      		{ y: 10, label: "0-60K" },
+			{ y: 39, label: "61-90K" },
+			{ y: 27, label: "91-120K" },
+			{ y: 12, label: "121-150K" },
+			{ y: 13, label: "151K +" }
+			
+		]
+	},
+	{
+		type: "bar",
+		showInLegend: true,
+		name: "Data Scientist",
+        color: "green",
+        yValueFormatString: "",
+        xValueFormatString: "#,##0\"%\"",
+		dataPoints: [
+		    { y: 2, label: "0-60K" },
+			{ y: 13, label: "61-90K" },
+			{ y: 17, label: "91-120K" },
+			{ y: 23, label: "121-150K" },
+			{ y: 45, label: "151K +" }	
+		]
+	},
+	{
+		type: "bar",
+		showInLegend: true,
+		name: "Data Engineer",
+        color: "orange",
+        yValueFormatString: "",
+        xValueFormatString: "#,##0\"%\"",
+		dataPoints: [
+            { y: 3, label: "0-60K" },
+			{ y: 14, label: "61-90K" },
+			{ y: 34, label: "91-120K" },
+			{ y: 21, label: "121-150K" },
+			{ y: 28, label: "151K +" }
+		]
+	}]
+});
+chart.render();
+
+function toolTipFormatter(e) {
+	var str = "";
+	var total = 0 ;
+	var str3;
+	var str2 ;
+	for (var i = 0; i < e.entries.length; i++){
+		var str1 = "<span style= \"color:"+e.entries[i].dataSeries.color + "\">" + e.entries[i].dataSeries.name + "</span>: <strong>"+  e.entries[i].dataPoint.y + "</strong> <br/>" ;
+		total = e.entries[i].dataPoint.y + total;
+		str = str.concat(str1);
+	}
+	str2 = "<strong>" + e.entries[0].dataPoint.label + "</strong> <br/>";
+	str3 = "<span style = \"color:Tomato\">Total: </span><strong>" + total + "</strong><br/>";
+	return (str2.concat(str)).concat(str3);
+}
+
+function toggleDataSeries(e) {
+	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+}
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>
